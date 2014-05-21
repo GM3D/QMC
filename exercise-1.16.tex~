@@ -1,0 +1,10 @@
+\documentclass[uplatex]{jsarticle}
+\usepackage{braket}
+\usepackage{amsmath}
+\begin{document}
+
+Verify Eq.(1.95), which is:
+
+\hat{M}(x_1, x_2) = \frac{1}{\sqrt{2 \pi}} \ket{(x_1, x_2)}\bra{(x_1, x_2)}
+
+\end{document}

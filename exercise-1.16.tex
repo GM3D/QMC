@@ -1,0 +1,151 @@
+\documentclass[uplatex]{jsarticle}
+\usepackage{braket}
+\usepackage{amsmath}
+\begin{document}
+
+Exercise 1.16.
+
+Verify Eq.(1.95), which is:
+
+\begin{equation}
+\hat{M}(x_1, x_2) = \frac{1}{\sqrt{2 \pi}}
+ \ket{(x_1, x_2)}\bra{(x_1, x_2)}
+\label{eq:target}
+\end{equation}
+
+where $\hat{M}(x_1, x_2)$ is defined by
+$\bra{x_1}\bra{x_2}\hat{U}\ket{d_2}\ket{d_1}$, with
+$\hat{U} = exp\left[-i(\hat{X}\hat{P_1} + \hat{P}\hat{P_2})\right]$
+and $\ket{(x_1, x_2)}$ is defined by
+
+\begin{equation}
+\braket{x \mid (x_1, x2)} = 
+\pi^{-1/4} exp\left[ ixx_2 - \frac{1}{2} (x - x_1)^2\right]
+\end{equation}
+
+definition of the initial meter states $\ket{d_i}$ is given by 
+\begin{equation}
+\braket{x_j \mid d_j} = (\pi / 2)^{-1/4} exp (-{x_j}^2)
+\end{equation}
+
+This wavefunction is given in the coordinate representation, but it is
+much easier to express these states in momentum representation, since
+$p_1$ and $p_2$ become c-number in momentum representation.
+
+wavefunction of $\ket{d_j}$ is not symmetric in $x$ and $p$. momentum
+representation of $\ket{d_j}$ is given by:
+\begin{equation}
+\braket{p_j \mid d_j} = (2\pi)^{-1/4} exp(-p^2/4)
+\end{equation}
+
+We will express $\ket{d_1}$ in x-representation and $\ket{d_2}$ in
+p-representation in the following calculation.
+
+To estimate the effect of $\hat{M}(x_1, x_2)$ on arbitrary system state,
+it is sufficient to see how system state base $\ket{x}$ is mapped by
+$\hat{M}$.
+
+\begin{eqnarray}
+\hat{M}(x_1, x_2)\ket{x} &=& 
+\bra{x_1}\bra{x_2}\hat{U}\ket{x}\ket{d_2}\ket{d_1} \nonumber \\
+&=& \frac{1}{\pi} \int_{-\infty}^{\infty} {dx_1}^\prime dp_2 
+\bra{x_1}\bra{x_2}e^{-i(\hat{P_1}\hat{X} + \hat{P_2}\hat{P})} 
+e^{-{x_1^\prime}^2 - p_2^2 / 4}\ket{x}\ket{{x_1}^\prime}\ket{p_2}\\
+\end{eqnarray}
+
+Since $e^{-{x_1^\prime}^2 - p_2^2 / 4}$ is just a c-number, we
+concentrate on $\bra{x_1}\bra{x_2}e^{-i(\hat{P_1}\hat{X} + \hat{P_2}\hat{P})} 
+\ket{x}\ket{{x_1}^\prime}\ket{p_2}$ for now.
+
+Note that 
+\begin{equation}
+exp(\alpha A + \beta B) 
+= exp(\alpha A) exp(\beta B) exp(-\frac{1}{2} [\alpha A, \beta B])
+\end{equation}
+
+if $[\alpha A, \beta B]$ commutes with all of $A$, $B$, $\alpha$, and
+$\beta$. Thus, 
+\begin{eqnarray}
+e^{-i(\hat{P_1}\hat{X} + \hat{P_2}\hat{P})} = 
+e^{-i\hat{P_1}\hat{X}} e^{-i\hat{P_2}\hat{P}} e^{\frac{i}{2} \hat{P_1}\hat{P_2}} 
+\end{eqnarray}
+
+transforms $\ket{x}\ket{{x_1}^\prime}\ket{p_2}$ as shown in the
+following;
+
+\begin{eqnarray}
+e^{-i\hat{P_1}\hat{X}} e^{-i\hat{P_2}\hat{P}} 
+e^{\frac{i}{2}\hat{P_1}\hat{P_2}}\ket{x}\ket{{x_1}^\prime}\ket{p_2}
+&=&
+e^{-i\hat{P_1}\hat{X}} e^{-i\hat{P_2}\hat{P}}
+e^{\frac{i}{2}\hat{P_1} p_2}\ket{x}\ket{{x_1}^\prime}\ket{p_2}
+\nonumber \\
+&=& 
+e^{-i\hat{P_1}\hat{X}} e^{-i\hat{P_2}\hat{P}}
+\ket{x}\ket{{x_1}^\prime - \frac{1}{2}p_2}\ket{p_2}
+\nonumber \\
+&=&
+e^{-i\hat{P_1}\hat{X}} e^{-i p_2\hat{P}}
+\ket{x}\ket{{x_1}^\prime - \frac{1}{2}p_2}\ket{p_2}
+\nonumber \\
+&=&
+e^{-i\hat{P_1}\hat{X}}
+\ket{x + p_2}\ket{{x_1}^\prime - \frac{1}{2}p_2}\ket{p_2}
+\nonumber \\
+&=&
+e^{-i\hat{P_1}(x + p_2)}
+\ket{x + p_2}\ket{{x_1}^\prime - \frac{1}{2}p_2}\ket{p_2}
+\nonumber \\
+&=&
+\ket{x + p_2}\ket{{x_1}^\prime - \frac{1}{2}p_2 + (x + p_2)}\ket{p_2}
+\nonumber \\
+&=&
+\ket{x + p_2}\ket{{x_1}^\prime + x + \frac{1}{2}p_2}\ket{p_2}
+\end{eqnarray}
+
+Here we used the basic formula $e^{-ix^\prime\hat{P}}\ket{x} =
+\ket{x + x^\prime}$ extensively on each component space.
+
+Using this result,
+
+\begin{eqnarray}
+\hat{M}(x_1, x_2)\ket{x} &=& \frac{1}{\sqrt{\pi}}\int e^{-{x_1^\prime}^2
+ - p_2^2 / 4}\ket{x+p_2}\braket{x_1 \mid {x_1}^\prime + x +
+ \frac{p_2}{2}} \braket{x_2 \mid p_2} d{x_1}^\prime dp_2 \nonumber \\
+&=&
+\frac{1}{\sqrt{\pi}}\int e^{-{x_1^\prime}^2
+ - p_2^2 / 4} \frac{e^{i p_2 x_2}}{\sqrt{2\pi}}\ket{x+p_2} \delta(x_1 - {x_1}^\prime - x -
+ \frac{p_2}{2}) d{x_1}^\prime dp_2 \nonumber \\
+&=&
+\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}\int e^{-(x_1 - x -
+\frac{p_2}{2})^2 - p_2^2 / 4 + i p_2 x_2} \ket{x_2 + p_2} dp_2
+\end{eqnarray}
+
+Let $x^\prime = x + p_2$, then the above expression reduces to;
+
+\begin{eqnarray}
+&\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}&
+\int e^{-(\frac{x^\prime}{2} + \frac{x}{2} - x_1)^2 
+- (x^\prime - x)^2 / 4 + i (x^\prime - x) x_2} \ket{x^\prime} dx^\prime
+ \nonumber\\
+&=&
+\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}
+e^{-\frac{x^2}{2} + xx_1 - x_1^2 -ixx_2} \int e^{-\frac{{x^\prime}^2}{2} +
+(ix_2 + x_1)x^\prime}\ket{x^\prime}dx^\prime \nonumber \\
+&=& 
+\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{\pi}}
+e^{-\frac{1}{2}(x - x_1)^2 - ixx_2} \int e^{-\frac{1}{2}(x^\prime -
+x_1)^2 + ix^\prime x} \ket{x^\prime} dx^\prime
+\end{eqnarray}
+
+On the other hand, 
+\begin{eqnarray}
+\ket{(x_1, x_2)}\bra{(x_1, x_2)}\ket{x} &=& 
+\pi^{-\frac{1}{4}} e^{-ixx_2 - \frac{1}{2}(x - x_1)^2}\ket{(x1, x2)}
+\nonumber \\
+&=& \pi^{-\frac{1}{2}} e^{-ixx_2 - \frac{1}{2}(x - x_1)^2}
+\int dx^\prime e^{ix^\prime x_2 - \frac{1}{2}(x^\prime - x_1)^2} \ket{x^\prime}
+\end{eqnarray}
+
+Comparing above two expressions concludes (\ref{eq:target}).
+\end{document}

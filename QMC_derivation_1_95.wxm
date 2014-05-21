@@ -1,0 +1,50 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 12.04.0 ] */
+
+/* [wxMaxima: input   start ] */
+f(x1, x2, x, p2) := - (x1 - x - p2 / 2)^2 - p2 ^ 2 / 4 + %i * p2 * x2;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g(x1, x2, x, y) := ev(f(x1, x2, x, p2), p2=y - x);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+g(x1, x2, x, y);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+expand(%);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+f1(x, x1, x2):= %pi^(-1/4) * exp(%i * x2 - (x - x1)^2 / 2);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+integrate(x*f1(x, x1, x2), x, -inf, inf);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+inprod(v, v);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+v * ctranspose(v);
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+domain;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+domain: complex;
+/* [wxMaxima: input   end   ] */
+
+/* [wxMaxima: input   start ] */
+v * ctranspose(v);
+/* [wxMaxima: input   end   ] */
+
+
+/* Maxima can't load/batch files which end with a comment! */
+"Created with wxMaxima"$
